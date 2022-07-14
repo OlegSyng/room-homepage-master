@@ -1,0 +1,89 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 0;
+        display: inline-block;
+        letter-spacing: 1.2rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        background-color: @color-white;
+        border: none;
+        cursor: pointer;
+        transition: all .1s;
+
+        span {
+            display: inline-block;
+            width: 4rem;
+            height: 1.2rem;
+            background-size: 100%;
+            background-image: url(../images/icon-arrow.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-left: 2rem;
+            transform: translateY(0.2rem);
+        }
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        transform: all .1s;
+        color:@color-dark-grey;
+
+        span {
+            background-image: none;
+            background-color: @color-dark-grey;
+            -webkit-mask-image: url(../images/icon-arrow.svg);
+            mask-image: url(../images/icon-arrow.svg);
+        }
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0,.2);
+    }
+}
+
+.btn-slider-prev,
+.btn-slider-next {
+    &,
+    &:link,
+    &:visited {
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        border: none;
+        cursor: pointer;
+        font-size: 0;
+        background-color: @color-black;
+        transition: all .2s;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: 20%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    &:hover {
+        background-color: @color-night-grey;
+    }
+}
+
+.btn-slider-prev {
+    span {
+        background-image: url(../images/icon-angle-left.svg);
+    }
+}
+.btn-slider-next {
+    span {
+        background-image: url(../images/icon-angle-right.svg);
+    }
+}

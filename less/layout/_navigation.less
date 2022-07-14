@@ -1,0 +1,153 @@
+.navbar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 10rem;
+
+    &__logo {
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+        height: 1.4rem;
+        width: 6.2rem;
+        font-size: 0;
+        margin: 0 auto;
+
+        .bp-desktop({
+            display: inline-block;
+            margin: 0 5rem;
+            vertical-align: top;
+            transform: translate(0, -30%);
+        })
+    }
+
+    &__toggler {
+        &,
+        &:link,
+        &:visited {
+            z-index: 10;
+            display: inline-block;
+            height: 3rem;
+            width: 3rem;
+            position: fixed;
+            top: 5rem;
+            left: 10vw;
+            background-color: transparent;
+            transform: translate(-50%, -50%);
+            border: none;
+            cursor: pointer;
+        }
+
+        &--icon {
+            position: relative;
+            top: -.3rem;
+
+            &,
+            &::before,
+            &::after {
+                width: 2.5rem;
+                height: 2px;
+                background-color: @color-white;
+                display: inline-block;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                transition: all .05s;
+            }
+
+            &::before {top: -.8rem;}
+            &::after {top: .8rem;}
+
+
+        }
+
+        .bp-desktop({
+            display: none;
+        })
+    }
+
+    &__collapse {
+        display: none;
+    }
+
+    // ON CLICK SHOW ITEMS
+    &__collapse--show {
+        display: block;
+        height: 100%;
+        background-color: @color-white;
+
+        .bp-desktop({
+            display: inline-block;
+            background-color: transparent;
+        })
+    }
+    &__collapse--show &__collapse--list {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+    &__collapse--show &__collapse--link {
+        &:link,
+        &:visited {
+            color: @color-black;
+            display: inline-block;
+            padding: 1rem 1.2rem;
+            text-decoration: none;
+            text-transform: lowercase;
+            font-size: 1.8rem;
+
+            .bp-desktop({
+                color: @color-white;
+                padding: 0 2rem;
+                position: relative;
+
+                &:hover::after {
+                    content: " ";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    display: inline-block;
+                    width: 30%;
+                    height: 3px;
+                    background-color: @color-white;
+                }
+            })
+        }
+    }
+    &__collapse--show &__collapse--item {
+        transform: translateY(.3rem);
+        &:first-child {
+            margin-left: auto;
+        }
+    }
+
+
+
+
+    // FUNCTIONALITY
+    &__toggler--collapsed &__toggler--icon{
+        background-color: transparent;
+
+        &::before {
+            top: 0;
+            transform: rotate(45deg);
+            background-color: @color-dark-grey;
+        }
+        &::after {
+            top: 0;
+            transform: rotate(-45deg);
+            background-color: @color-dark-grey;
+        }
+    }
+
+    &__toggler--collapsed + &__logo {
+        display: none;
+    }    
+}
