@@ -50,7 +50,6 @@ Users should be able to:
 4. LESS pre-processor used for development.
 5. Listen to media query width through JS and customize look of navbar section.
 
-To see how you can add code snippets, see below:
 
 
 ```js
